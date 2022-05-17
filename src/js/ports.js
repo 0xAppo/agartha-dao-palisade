@@ -229,6 +229,7 @@ function subscribeToCTokenPorts(app, eth) {
   // port askCTokenMetadataAllPort : { blockNumber : Int, comptrollerAddress : String, cTokenAddress : String, underlyingAssetAddress : String, cTokenDecimals : Int, underlyingDecimals : Int, isCEther : Bool } -> Cmd msg
   app.ports.askCTokenMetadataAllPort.subscribe(({ blockNumber, cTokens, compoundLens }) => {
     const CompoundLens = getContractJsonByName(eth, 'CompoundLens');
+    console.log('inside askCTokenMetadataAllPort ports.js');
     console.log('CompoundLens', CompoundLens);
     console.log('cToken', cTokens);
 
@@ -260,7 +261,6 @@ function subscribeToCTokenPorts(app, eth) {
             const oneCTokenInUnderlying = exchangeRateCurrent / Math.pow(10, mantissa);
             const totalSupplyScaled = parseWeiStr(totalSupplyResult) / Math.pow(10, cTokenDecimals);
 
-            console.log('inside askCTokenMetadataAllPort ports.js');
             console.log('raw data dump')
             console.log('cTokenAddress', cTokenAddress);
             console.log('exchangeRateResult', exchangeRateResult);
@@ -409,11 +409,16 @@ function subscribeToComptrollerPorts(app, eth) {
   app.ports.askOraclePricesAllPort.subscribe(({ blockNumber, cTokens: cTokenEntries, compoundLens }) => {
     const CompoundLens = getContractJsonByName(eth, 'CompoundLens');
     let cTokens = supportFromEntries(cTokenEntries);
+    console.log('inside askOraclePricesAllPort ports.js');
+    console.log('CompoundLens', CompoundLens);
+    console.log('cTokens', cTokens);
 
     wrapCall(app, eth, [[CompoundLens, compoundLens, 'cTokenUnderlyingPriceAll', [Object.keys(cTokens)]]], blockNumber)
       .then(([results]) => {
         const allPricesList = results.map(([cTokenAddress, underlyingPrice]) => {
           let underlyingAssetAddress = cTokens[cTokenAddress.toLowerCase()];
+          console.log('underlyingAssetAddress', underlyingAssetAddress);
+          console.log('underlyingPrice', underlyingPrice);
 
           return {
             underlyingAssetAddress: underlyingAssetAddress,
