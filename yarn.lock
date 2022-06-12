@@ -3024,9 +3024,9 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001254:
-  version "1.0.30001257"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001257.tgz#150aaf649a48bee531104cfeda57f92ce587f6e5"
-  integrity sha512-JN49KplOgHSXpIsVSF+LUyhD8PUp6xPpAXeRrrcBh4KBeP7W864jHn6RvzJgDlrReyeVjMFJL3PLpPvKIxlIHA==
+  version "1.0.30001352"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001352.tgz"
+  integrity sha512-GUgH8w6YergqPQDGWhJGt8GDRnY0L/iJVQcU3eJ46GYf52R8tk0Wxp0PymuFVZboJYXGiCqwozAYZNRjVj6IcA==
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
@@ -3408,9 +3408,9 @@ component-emitter@^1.2.1:
     webpack-dev-server "^3.7.2"
     yargs "^16.2.0"
 
-"compound-config@https://github.com/0xAppo/agartha-dao-config.git#590cea9d876bdc90ea36dd35bba58c6d78ead941":
+"compound-config@https://github.com/0xAppo/agartha-dao-config.git#17a61fb2706574bf0684baec08d6126eeef7ad2a":
   version "0.0.0"
-  resolved "https://github.com/0xAppo/agartha-dao-config.git#590cea9d876bdc90ea36dd35bba58c6d78ead941"
+  resolved "https://github.com/0xAppo/agartha-dao-config.git#17a61fb2706574bf0684baec08d6126eeef7ad2a"
 
 compressible@~2.0.16:
   version "2.0.18"

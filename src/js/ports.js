@@ -169,7 +169,7 @@ function subscribeToCTokenPorts(app, eth) {
       desiredAssetDecimals,
       isCEther,
     }) => {
-      const CEther = getContractJsonByName(eth, 'cETH');
+      const CEther = getContractJsonByName(eth, 'lETH');
       const CToken = getContractJsonByAddress(eth, cTokenAddress);
       const closeAmountWei = parseWeiStr(borrowedAssetAmountWeiStr);
 
@@ -348,7 +348,7 @@ function subscribeToCTokenPorts(app, eth) {
               const tokenBalance = toScaledDecimal(tokenBalanceResult, underlyingDecimals);
               const tokenAllowance = toScaledDecimal(tokenAllowanceResult, underlyingDecimals);
 
-              if (cTokenSymbol == 'cETH') {
+              if (cTokenSymbol == 'lETH') {
                 // Since we're on eth anyway
                 app.ports.giveAccountBalancePort.send({
                   balance: tokenBalance,
