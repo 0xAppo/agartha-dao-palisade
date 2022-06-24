@@ -199,7 +199,6 @@ init { path, configurations, configAbiFiles, dataProviders, apiBaseUrlMap, userA
             Url.fromString path
                 |> Maybe.map getPage
                 |> Maybe.withDefault Home
-
         configs =
             loadConfigs configurations
                 |> Result.withDefault Dict.empty
@@ -297,7 +296,6 @@ init { path, configurations, configAbiFiles, dataProviders, apiBaseUrlMap, userA
         , Task.perform SetTimeZone Time.here
         ]
     )
-
 
 newNetworkCmd : Network -> Model -> Cmd Msg
 newNetworkCmd newNetwork model =
