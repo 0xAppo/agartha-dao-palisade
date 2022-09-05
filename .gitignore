@@ -30,4 +30,4 @@ public/compound-components/
 .release-notes
 
 # env files
-config/env
+config/env/
