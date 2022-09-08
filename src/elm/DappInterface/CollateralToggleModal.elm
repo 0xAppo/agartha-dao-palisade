@@ -246,7 +246,7 @@ getModalDescriptions userLanguage config customerAddress ({ chosenAsset, enterin
             , p [ class "small text-center" ]
                 [ text (Translations.disable_as_collateral_description userLanguage)
                 , text " "
-                , a ([ target "_blank" ] ++ href External "https://medium.com/compound-finance/faq-1a2636713b69") [ text (Translations.collateral_toggle_learn_more userLanguage) ]
+                , a ([ target "_blank" ] ++ href External "https://docs.lodestarfinance.io/getting-started/faq") [ text (Translations.collateral_toggle_learn_more userLanguage) ]
                 , text "."
                 ]
             )
@@ -256,7 +256,7 @@ getModalDescriptions userLanguage config customerAddress ({ chosenAsset, enterin
         , p [ class "small text-center" ]
             [ text (Translations.enable_as_collateral_description userLanguage)
             , text " "
-            , a ([ target "_blank" ] ++ href External "https://medium.com/compound-finance/faq-1a2636713b69") [ text (Translations.collateral_toggle_learn_more userLanguage) ]
+            , a ([ target "_blank" ] ++ href External "https://docs.lodestarfinance.io/getting-started/faq") [ text (Translations.collateral_toggle_learn_more userLanguage) ]
             , text "."
             ]
         )
