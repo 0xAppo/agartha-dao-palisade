@@ -5,7 +5,7 @@ import Strings.Translations as Translations
 
 terms_updated_date : Translations.Lang -> String
 terms_updated_date _ =
-    "Updated: July 8, 2019"
+    "Updated: September 8th, 2022"
 
 
 terms_of_service : Translations.Lang -> String
@@ -15,7 +15,7 @@ terms_of_service _ =
 
 terms_intro_part1 : Translations.Lang -> String
 terms_intro_part1 _ =
-    "Welcome to https://app.compound.finance, a website-hosted user interface (the “Interface” or “App”) provided by Compound Labs, Inc. (“we”, “our”, or “us”). The Interface provides access to a decentralized protocol on the Ethereum blockchain that allows suppliers and borrowers of certain digital assets to participate in autonomous interest rate markets (the “Protocol”)."
+    "Welcome to https://app.lodestarfinance.io, a website-hosted user interface (the “Interface” or “App”) provided by ACR Labs, Inc. (“we”, “our”, or “us”). The Interface provides access to a decentralized protocol on the Arbitrum blockchain that allows suppliers and borrowers of certain digital assets to participate in autonomous interest rate markets (the “Protocol”)."
 
 
 terms_intro_part2 : Translations.Lang -> String
@@ -40,7 +40,7 @@ terms_1_header _ =
 
 terms_1_description : Translations.Lang -> String
 terms_1_description _ =
-    "We reserve the right, in our sole discretion, to modify this Agreement from time to time. If we make any modifications, we will notify you by updating the date at the top of the Agreement and by maintaining a current version of the Agreement at https://app.compound.finance/terms. All modifications will be effective when they are posted, and your continued use of the Interface will serve as confirmation of your acceptance of those modifications. If you do not agree with any modifications to this Agreement, you must immediately stop accessing and using the Interface."
+    "We reserve the right, in our sole discretion, to modify this Agreement from time to time. If we make any modifications, we will notify you by updating the date at the top of the Agreement and by maintaining a current version of the Agreement at https://app.lodestarfinance.io/terms. All modifications will be effective when they are posted, and your continued use of the Interface will serve as confirmation of your acceptance of those modifications. If you do not agree with any modifications to this Agreement, you must immediately stop accessing and using the Interface."
 
 
 terms_2_header : Translations.Lang -> String
@@ -65,7 +65,7 @@ terms_3_description _ =
 
 terms_4_header : Translations.Lang -> String
 terms_4_header _ =
-    "4. Privacy"
+    "3. Privacy"
 
 
 terms_4_description : Translations.Lang -> String
@@ -75,7 +75,7 @@ terms_4_description _ =
 
 terms_5_header : Translations.Lang -> String
 terms_5_header _ =
-    "5. Prohibited Activity"
+    "4. Prohibited Activity"
 
 
 terms_5_description : Translations.Lang -> String
@@ -135,7 +135,7 @@ terms_5_bullet_e_descriptiopn _ =
 
 terms_6_header : Translations.Lang -> String
 terms_6_header _ =
-    "6. No Professional Advice"
+    "5. No Professional Advice"
 
 
 terms_6_description : Translations.Lang -> String
@@ -145,7 +145,7 @@ terms_6_description _ =
 
 terms_7_header : Translations.Lang -> String
 terms_7_header _ =
-    "7. No Warranties"
+    "6. No Warranties"
 
 
 terms_7_description_part1 : Translations.Lang -> String
@@ -165,7 +165,7 @@ terms_7_description_part3 _ =
 
 terms_8_header : Translations.Lang -> String
 terms_8_header _ =
-    "8. No Fiduciary Duties"
+    "7. No Fiduciary Duties"
 
 
 terms_8_description : Translations.Lang -> String
@@ -175,7 +175,7 @@ terms_8_description _ =
 
 terms_9_header : Translations.Lang -> String
 terms_9_header _ =
-    "9. Compliance Obligations"
+    "8. Compliance Obligations"
 
 
 terms_9_description : Translations.Lang -> String
@@ -185,7 +185,7 @@ terms_9_description _ =
 
 terms_10_header : Translations.Lang -> String
 terms_10_header _ =
-    "10. Assumption of Risk"
+    "9. Assumption of Risk"
 
 
 terms_10_description_part1 : Translations.Lang -> String
@@ -200,7 +200,7 @@ terms_10_description_part2 _ =
 
 terms_11_header : Translations.Lang -> String
 terms_11_header _ =
-    "11. Third-Party Resources and Promotions"
+    "10. Third-Party Resources and Promotions"
 
 
 terms_11_description : Translations.Lang -> String
@@ -210,7 +210,7 @@ terms_11_description _ =
 
 terms_12_header : Translations.Lang -> String
 terms_12_header _ =
-    "12. Release of Claims"
+    "11. Release of Claims"
 
 
 terms_12_description : Translations.Lang -> String
@@ -220,7 +220,7 @@ terms_12_description _ =
 
 terms_13_header : Translations.Lang -> String
 terms_13_header _ =
-    "13. Indemnity"
+    "12. Indemnity"
 
 
 terms_13_description : Translations.Lang -> String
@@ -230,7 +230,7 @@ terms_13_description _ =
 
 terms_14_header : Translations.Lang -> String
 terms_14_header _ =
-    "14. Limitation of Liability"
+    "13. Limitation of Liability"
 
 
 terms_14_description : Translations.Lang -> String
@@ -240,7 +240,7 @@ terms_14_description _ =
 
 terms_15_header : Translations.Lang -> String
 terms_15_header _ =
-    "15. Dispute Resolution"
+    "14. Dispute Resolution"
 
 
 terms_15_description_part1 : Translations.Lang -> String
@@ -265,7 +265,7 @@ terms_15_description_part4 _ =
 
 terms_16_header : Translations.Lang -> String
 terms_16_header _ =
-    "16. Class Action and Jury Trial Waiver"
+    "15. Class Action and Jury Trial Waiver"
 
 
 terms_16_description : Translations.Lang -> String
@@ -275,9 +275,9 @@ terms_16_description _ =
 
 terms_17_header : Translations.Lang -> String
 terms_17_header _ =
-    "17. Governing Law"
+    "16. Governing Law"
 
 
 terms_17_description : Translations.Lang -> String
 terms_17_description _ =
-    "You agree that the laws of the State of California, without regard to principles of conflict of laws, govern this Agreement and any Dispute between you and us. You further agree that the Interface shall be deemed to be based solely in the State of California, and that although the Interface may be available in other jurisdictions, its availability does not give rise to general or specific personal jurisdiction in any forum outside the State of California. Any arbitration conducted pursuant to this Agreement shall be governed by the Federal Arbitration Act. You agree that San Francisco, California is the proper forum for any appeals of an arbitration award or for court proceedings in the event that this Agreement’s binding arbitration clause is found to be unenforceable."
+    "You agree that the laws of the State of Texas, without regard to principles of conflict of laws, govern this Agreement and any Dispute between you and us. You further agree that the Interface shall be deemed to be based solely in the State of Texas, and that although the Interface may be available in other jurisdictions, its availability does not give rise to general or specific personal jurisdiction in any forum outside the State of Texas. Any arbitration conducted pursuant to this Agreement shall be governed by the Federal Arbitration Act. You agree that Austin, Texas is the proper forum for any appeals of an arbitration award or for court proceedings in the event that this Agreement’s binding arbitration clause is found to be unenforceable."
