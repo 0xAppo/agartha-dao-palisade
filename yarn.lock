@@ -3385,9 +3385,9 @@ component-emitter@^1.2.1:
     webpack-dev-server "^3.7.2"
     yargs "^16.2.0"
 
-"compound-config@https://github.com/0xAppo/lodestar-config.git#25693389d0f92eea42c90c7c671bc2ce1f2e976a":
+"compound-config@https://github.com/0xAppo/lodestar-config.git#7bac1f6e9eaa72ec9a9769e4c0ec6830d065f552":
   version "0.0.0"
-  resolved "https://github.com/0xAppo/lodestar-config.git#25693389d0f92eea42c90c7c671bc2ce1f2e976a"
+  resolved "https://github.com/0xAppo/lodestar-config.git#7bac1f6e9eaa72ec9a9769e4c0ec6830d065f552"
 
 compressible@~2.0.16:
   version "2.0.18"
