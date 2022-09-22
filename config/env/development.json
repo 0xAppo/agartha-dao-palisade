@@ -7,6 +7,7 @@
     "ropsten": "https://api.lodestarfinance.io/",
     "mainnet": "https://api.lodestarfinance.io/",
     "arbitrumtest": "https://api.lodestarfinance.io/",
+    "arbitrumgoerli": "https://api.lodestarfinance.io/",
     "arbitrum": "https://api.lodestarfinance.io/"
   },
   "DATA_PROVIDERS": {
@@ -17,6 +18,7 @@
     "ropsten": "https://ropsten.infura.io/v3",
     "mainnet": "https://mainnet.infura.io/v3",
     "arbitrumtest": "https://rinkeby.arbitrum.io/rpc",
+    "arbitrumgoerli": "https://goerli-rollup.arbitrum.io/rpc",
     "arbitrum": "https://arbitrum-mainnet.infura.io/v3"
   },
   "NETWORK_MAP": {
@@ -27,6 +29,7 @@
     "kovan": 42,
     "development": 999,
     "arbitrumtest": 421611,
+    "arbitrumgoerli": 421613,
     "arbitrum": 42161
   },
   "DEFAULT_NETWORK": "rinkeby",

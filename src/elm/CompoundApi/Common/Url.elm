@@ -34,6 +34,9 @@ buildApiUrl apiBaseUrlMap network apiEndpoint endpointQueryParams =
                 Arbitrum ->
                     True
 
+                Arbitrumgoerli ->
+                    True
+
                 _ ->
                     False
 
