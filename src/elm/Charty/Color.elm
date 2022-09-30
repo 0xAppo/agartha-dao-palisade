@@ -28,8 +28,8 @@ type alias Color =
 defaultPalette : Array Color
 defaultPalette =
     Array.fromList
-        [ "#284389" -- borrow
-        , "#d7bc76" -- supply
+        [ "#4777f2" -- borrow
+        , "#E5D540" -- supply
         , "#657786" -- color_grey_1
         ]
 
