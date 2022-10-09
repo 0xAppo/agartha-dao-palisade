@@ -1528,7 +1528,7 @@ votingWalletPanel userLanguage config network accountAddress maybeDelegateTransa
                             [ div [ class "wallet-panel__data__row__setup-title" ] [ text (Translations.setup_voting userLanguage) ]
                             , p [ class "wallet-panel__data__row__setup-description" ]
                                 [ text (Translations.setup_voting_description userLanguage)
-                                , a (target "_blank" :: href External "https://medium.com/compound-finance/compound-governance-5531f524cf68") [ text (Translations.learn_more userLanguage ++ ".") ]
+                                , a (target "_blank" :: href External "https://lodestarfinance.io") [ text (Translations.learn_more userLanguage ++ ".") ]
                                 ]
                             , div [ class "button main wallet-panel__data__row__button wallet-panel__data__row__button--undelegated", onClick (ForSelf (SetDelegateModal SelectDelegationType)) ]
                                 [ div [ class "wallet-panel__data__row__button__text" ]

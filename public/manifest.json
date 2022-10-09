@@ -3,12 +3,12 @@
   "name": "Lodestar Finance",
   "icons": [
     {
-      "src": "images/compound-192.png",
+      "src": "meta-tag.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/compound-512.png",
+      "src": "meta-tag.png",
       "sizes": "512x512",
       "type": "image/png"
     }

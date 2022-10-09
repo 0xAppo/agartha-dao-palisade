@@ -342,7 +342,6 @@ function subscribeToCTokenPorts(app, eth) {
               totalSupplyUnderlying: toScaledDecimal(totalSupplyScaled * oneCTokenInUnderlying, 0),
               totalUnderlyingCash: totalCash,
               borrowCap: toScaledDecimal(parseWeiStr(borrowCapResult), underlyingDecimals),
-              blockNumber: blockNumber
             };
             console.log(data);
             return data
