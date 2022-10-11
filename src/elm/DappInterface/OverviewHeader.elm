@@ -232,6 +232,28 @@ netAPYView maybeConfig maybeEtherUsdPrice ({ userLanguage } as mainModel) =
                                 mainModel.compoundState.cTokensMetadata
                                     |> Dict.get cTokenAddressString
 
+                            ( compRateForSupply, compRateForBorrow ) =
+                                case ( maybeCTokenMetadata, maybeCompUSDPrice ) of
+                                    ( Just cTokenMetadata, Just compUSDPrice ) ->
+                                        let
+                                            totalSupplyUsd =
+                                                cTokenMetadata.totalSupplyUnderlying
+                                                    |> Decimal.mul tokenValueUsd
+
+                                            totalBorrowUsd =
+                                                cTokenMetadata.totalBorrows
+                                                    |> Decimal.mul tokenValueUsd
+
+                                            compRate marketTotalUSDValue compSpeedPerDayValue =
+                                                Utils.CompAPYHelper.compRate compUSDPrice compSpeedPerDayValue marketTotalUSDValue
+                                                    |> Maybe.withDefault Decimal.zero
+                                        in
+                                        ( compRate totalSupplyUsd cTokenMetadata.compSupplySpeedPerDay, compRate totalBorrowUsd cTokenMetadata.compBorrowSpeedPerDay )
+
+                                    _ ->
+                                        ( Decimal.zero, Decimal.zero )
+
+
                             ( supplyInterestRate, borrowInterestRate ) =
                                 Balances.getInterestRate mainModel.compoundState.cTokensMetadata cToken.contractAddress
                                     |> Maybe.map
@@ -244,11 +266,11 @@ netAPYView maybeConfig maybeEtherUsdPrice ({ userLanguage } as mainModel) =
 
                             supplyBalMulRateUsd =
                                 Decimal.mul supplyBalance tokenValueUsd
-                                    |> Decimal.mul (supplyInterestRate)
+                                    |> Decimal.mul (Decimal.add supplyInterestRate compRateForSupply)
 
                             borrowBalMulRateUsd =
                                 Decimal.mul borrowBalance tokenValueUsd
-                                    |> Decimal.mul (borrowInterestRate)
+                                    |> Decimal.mul (Decimal.sub borrowInterestRate compRateForBorrow)
                         in
                         ( Decimal.sub supplyBalMulRateUsd borrowBalMulRateUsd
                         , supplyBalMulRateUsd

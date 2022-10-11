@@ -1,7 +1,7 @@
 {
   "no_account": "No Account",
 
-  "bad_network_alert": "Lodestar is not supported on this network. Please switch to Mainnet.",
+  "bad_network_alert": "Lodestar is not supported on this network. Please switch to Arbitrum Mainnet or a supported Testnet.",
   "no_account_alert": "Please enable MetaMask or visit this page in a Web3 browser to interact with the Lodestar protocol",
   "testnet_alert": "Note: You are currently connected to the {{network}} Testnet",
   "no_ether_alert": "Your account does not have any Ether, which is required to interact with Lodestar",
@@ -12,7 +12,7 @@
   "latest_block": "Latest Block: {{latestBlock}}",
   "collateral_balance": "Collateral Balance",
   "net_apy": "Net APY",
-  "interest_earned_and_paid": "Interest earned and paid",
+  "interest_earned_and_paid": "Interest earned and paid, plus LODE.",
   "earning": "Earning",
   "tbd": "TBD",
   "borrow_against": "Collateral",

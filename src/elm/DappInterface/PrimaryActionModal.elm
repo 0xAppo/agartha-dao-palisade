@@ -540,7 +540,7 @@ assetAndCompRateForm userLanguage config maybeEtherUsdPrice ({ chosenAsset, prim
         cTokenAddressString =
             Ethereum.getContractAddressString primaryActionModalState.chosenAsset.contractAddress
 
-        ( marketTotalUSDValue ) =
+        ( marketTotalUSDValue, compSpeedPerDay ) =
             mainModel.compoundState.cTokensMetadata
                 |> Dict.get cTokenAddressString
                 |> Maybe.map
@@ -555,10 +555,37 @@ assetAndCompRateForm userLanguage config maybeEtherUsdPrice ({ chosenAsset, prim
                                     cTokenMetadata.totalBorrows
                                         |> Decimal.mul tokenValueUsd
 
+                            compSpeedPerDayForAction =
+                                if primaryActionType == MintAction || primaryActionType == RedeemAction then
+                                    cTokenMetadata.compSupplySpeedPerDay
+                                else
+                                    cTokenMetadata.compBorrowSpeedPerDay
+
                         in
-                        ( marketTotalUsdForAction )
+                        ( marketTotalUsdForAction, compSpeedPerDayForAction )
                     )
-                |> Maybe.withDefault ( Decimal.zero )
+                |> Maybe.withDefault ( Decimal.zero, Decimal.zero )
+
+        distributionApyText =
+            case maybeCompUSDPrice of
+                Just compUSDPrice ->
+                    let
+                        maybeDistributionCompAPY =
+                            compRate compUSDPrice compSpeedPerDay marketTotalUSDValue
+                    in
+                    case maybeDistributionCompAPY of
+                        Just distributionCompAPY ->
+                            if Decimal.gt distributionCompAPY (Decimal.fromInt 1000000) then
+                                "– %"
+
+                            else
+                                formatPercentageWithDots maybeDistributionCompAPY
+
+                        Nothing ->
+                            "– %"
+
+                Nothing ->
+                    "– %"
     in
     div [ class "form" ]
         [ a ([ class "label-link", target "__blank" ] ++ href External (marketDetailPageUrl chosenAsset))
@@ -573,6 +600,15 @@ assetAndCompRateForm userLanguage config maybeEtherUsdPrice ({ chosenAsset, prim
                     ]
                 ]
             , span [] [ text (formatPercentageWithDots interestRate) ]
+            ]
+            , div [ class "calculation" ]
+            [ span []
+                [ span [ class "icon icon--COMP" ] []
+                , span [ class "description" ]
+                    [ text (Translations.distribution_apy userLanguage)
+                    ]
+                ]
+            , span [] [ text distributionApyText ]
             ]
         ]
 

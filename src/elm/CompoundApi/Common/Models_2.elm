@@ -1,4 +1,4 @@
-module CompoundApi.Common.Models exposing (API_Error, PaginationSummary)
+module CompoundApi.Common.Models_2 exposing (API_Error, PaginationSummary)
 
 
 type alias API_Error =

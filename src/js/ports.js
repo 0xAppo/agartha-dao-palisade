@@ -291,7 +291,7 @@ function subscribeToCTokenPorts(app, eth) {
     const CompoundLens = getContractJsonByName(eth, 'CompoundLens');
     // console.log('CompoundLens', CompoundLens);
     const Comptroller = getContractJsonByName(eth, 'Comptroller');
-    // console.log('Comptroller', Comptroller);
+    console.log('Comptroller', Comptroller);
     // console.log('cToken', cTokens);
     // console.log('cToken array', [cTokens]);
 
@@ -315,6 +315,8 @@ function subscribeToCTokenPorts(app, eth) {
             underlyingAssetAddress: underlyingAssetAddress,
             cTokenDecimals: cTokenDecimals,
             underlyingDecimals: underlyingDecimals,
+            compSupplySpeed: compSupplySpeedResult,
+            compBorrowSpeed: compBorrowSpeedResult,
             borrowCap: borrowCapResult
           }) => {
             const totalCash = toScaledDecimal(parseWeiStr(totalCashResult), underlyingDecimals);
@@ -330,7 +332,7 @@ function subscribeToCTokenPorts(app, eth) {
             // 5760 * supplyRatePerBlock / 1e18
             // from the port and have the Elm side do the fancier math with Decimal.
             const data = {
-              cTokenAddress: cTokenAddress.toUpperCase(),
+              cTokenAddress: cTokenAddress,
               exchangeRate: toScaledDecimal(parseWeiStr(exchangeRateResult), EXP_DECIMALS),
               supplyRatePerDay: toScaledDecimal(parseWeiStr(supplyRateResult).mul(BLOCKS_PER_DAY), EXP_DECIMALS),
               borrowRatePerDay: toScaledDecimal(parseWeiStr(borrowRateResult).mul(BLOCKS_PER_DAY), EXP_DECIMALS),
@@ -341,7 +343,11 @@ function subscribeToCTokenPorts(app, eth) {
               totalSupply: toScaledDecimal(parseWeiStr(totalSupplyResult), cTokenDecimals),
               totalSupplyUnderlying: toScaledDecimal(totalSupplyScaled * oneCTokenInUnderlying, 0),
               totalUnderlyingCash: totalCash,
-              borrowCap: toScaledDecimal(parseWeiStr(borrowCapResult), underlyingDecimals),
+              compSupplySpeedPerBlock: toScaledDecimal(parseWeiStr(compSupplySpeedResult), EXP_DECIMALS),
+              compSupplySpeedPerDay: toScaledDecimal(parseWeiStr(compSupplySpeedResult).mul(BLOCKS_PER_DAY), EXP_DECIMALS),
+              compBorrowSpeedPerBlock: toScaledDecimal(parseWeiStr(compBorrowSpeedResult), EXP_DECIMALS),
+              compBorrowSpeedPerDay: toScaledDecimal(parseWeiStr(compBorrowSpeedResult).mul(BLOCKS_PER_DAY), EXP_DECIMALS),
+              borrowCap: toScaledDecimal(parseWeiStr(borrowCapResult), underlyingDecimals)
             };
             console.log(data);
             return data
@@ -352,7 +358,7 @@ function subscribeToCTokenPorts(app, eth) {
         app.ports.giveCTokenMetadataPort.send(cTokenMetadataList);
         // TODO: ENABLE ME WHEN WE WANT TO INSERT ON A PER SECOND BASIS
         console.log('DONE - [giveCTokenMetadataPort] This is where we would be posting: ', cTokenMetadataList);
-        post(cTokenMetadataList, 'cTokenMetadata');
+        //post(cTokenMetadataList, 'cTokenMetadata');
         console.log("After Post Function");
         console.log(cTokenMetadataList);
       })
@@ -416,7 +422,7 @@ function subscribeToCTokenPorts(app, eth) {
 
           app.ports.giveCTokenBalancesAllPort.send(cTokenBalancesList);
           console.log('DONE - [giveCTokenBalancesAllPort] This is where we would be posting: ', cTokenBalancesList);
-          post(cTokenBalancesList, 'cTokenBalances');
+          //post(cTokenBalancesList, 'cTokenBalances');
         })
         .catch(reportError(app));
     });
@@ -456,7 +462,7 @@ function subscribeToComptrollerPorts(app, eth) {
 
           app.ports.giveAccountLimitsPort.send(data);
           console.log('DONE - [askAccountLimitsPort] This is where we would be posting: ', data);
-          post(data, 'accounts');
+          //post(data, 'accounts');
         }
       )
       .catch(reportError(app));
@@ -482,7 +488,7 @@ function subscribeToComptrollerPorts(app, eth) {
         });
         
         console.log('DONE - [askOraclePricesAllPort] This is where we would be posting: ', allPricesList);
-        post(allPricesList, 'oraclePrices');
+        //post(allPricesList, 'oraclePrices');
         app.ports.giveOraclePricesAllPort.send(allPricesList);
       })
       .catch(reportError(app));
