@@ -180,7 +180,7 @@ loadConfig networkName ({ contracts, cTokensRaw, tokens, blocks } as basicConfig
                 |> Maybe.andThen (\tokenConfig -> Just tokenConfig.address)
 
         maybeCompToken =
-            Dict.get "COMP" tokens
+            Dict.get "LODE" tokens
 
         maybeReservoir =
             Dict.get "Reservoir" contracts
@@ -202,7 +202,7 @@ loadConfig networkName ({ contracts, cTokensRaw, tokens, blocks } as basicConfig
                                         case networkName of
                                             "mainnet" ->
                                                 if areContractsEqual rawCTokenConfig.address (Contract "0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643") then
-                                                    -- Rename DAI in the underlying
+                                                    -- TODO: Rename DAI in the underlying (Do we need to do this for)
                                                     { tokenConfig | name = "Dai" }
 
                                                 else if areContractsEqual rawCTokenConfig.address (Contract "0xF5DCe57282A584D2746FaF1593d3121Fcac444dC") then

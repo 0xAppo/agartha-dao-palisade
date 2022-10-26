@@ -15,7 +15,7 @@ terms_of_service _ =
 
 terms_intro_part1 : Translations.Lang -> String
 terms_intro_part1 _ =
-    "Welcome to https://app.lodestarfinance.io, a website-hosted user interface (the “Interface” or “App”) provided by ACR Labs, Inc. (“we”, “our”, or “us”). The Interface provides access to a decentralized protocol on the Arbitrum blockchain that allows suppliers and borrowers of certain digital assets to participate in autonomous interest rate markets (the “Protocol”)."
+    "Welcome to https://app.lodestarfinance.io, a website-hosted user interface (the “Interface” or “App”) provided by Lodestar (“we”, “our”, or “us”). The Interface provides access to a decentralized protocol on the Arbitrum blockchain that allows suppliers and borrowers of certain digital assets to participate in autonomous interest rate markets (the “Protocol”)."
 
 
 terms_intro_part2 : Translations.Lang -> String

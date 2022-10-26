@@ -31,8 +31,11 @@ getAllSupportedCTokens compoundState tokenState =
                         Nothing
 
                     else
-                        Just cToken
+                        Just cToken 
 
+                else if cToken.symbol == "lLODE" then
+                    Nothing
+                
                 else
                     Just cToken
             )

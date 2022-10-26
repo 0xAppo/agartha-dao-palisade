@@ -154,14 +154,15 @@ pageHeader userLanguage page connectedWallet account preferences governanceState
                 [ accountButton ]
 
             else
-                []
+                [ compBalanceView account governanceState ]
 
         links =
             let
-                { homeClass } =
+                { homeClass, voteClass } =
                     let
                         emptyClasses =
                             { homeClass = ""
+                            , voteClass = ""
                             }
                     in
                     case page of
@@ -177,12 +178,12 @@ pageHeader userLanguage page connectedWallet account preferences governanceState
     header [ class "dapp" ]
         [ div [ class "container-large" ]
             [ div [ class "row align-middle" ]
-                [ div [ class "col-xs-3" ]
+                [ div [ class "col-xs-3 col-sm-4" ]
                     [ a (class "brand" :: href External "https://lodestarfinance.io") []
                     ]
-                , div [ class "col-xs-6 mobile-hide text-center links" ] links
-                , div [ class "col-xs-9 col-sm-3 text-right actions" ]
-                    [compBalanceView account governanceState
+                , div [ class "col-xs-5 col-sm-4 mobile-hide text-center links" ] links
+                , div [ class "col-xs-9 col-sm-4 text-right actions" ]
+                    [ compBalanceView account governanceState
                     , accountButton
                     ]
                 , div [ class "col-xs-9 mobile-links actions" ] mobileLinks
@@ -208,7 +209,7 @@ pageFooter userLanguage maybeBlockNumber preferences model =
                 [ div [ class "col-xs-12 col-sm-2" ]
                     [ a ([ class "brand" ] |> List.append (href PageNavigation "/")) [] ]
                 , div [ class "col-xs-12 col-sm-10 links" ]
-                    [a (href PageNavigation (getHrefUrl TermsOfService)) [ text (Translations.terms userLanguage) ]
+                    [ a (href PageNavigation (getHrefUrl TermsOfService)) [ text (Translations.terms userLanguage) ]
                     , a (target "_blank" :: href External "https://docs.lodestarfinance.io/getting-started/user-guide") [ text (Translations.support userLanguage) ]
                     ]
                 ]
@@ -228,6 +229,7 @@ pageFooter userLanguage maybeBlockNumber preferences model =
                 ]
             ]
         ]
+
 
 compBalanceView : Account -> GovernanceState -> Html Msg
 compBalanceView account governanceState =
@@ -254,7 +256,8 @@ compBalanceView account governanceState =
 
         _ ->
             text ""
-            
+
+
 getCurrencyTextAndMsg : DisplayCurrency -> ( String, Msg )
 getCurrencyTextAndMsg targetCurrency =
     case targetCurrency of

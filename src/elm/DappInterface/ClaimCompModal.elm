@@ -202,7 +202,7 @@ view userLanguage maybeConfig maybeNetwork account tokenState oracleState transa
                 compPrice =
                     tokenState.cTokens
                         |> Dict.values
-                        |> List.filter (\{ symbol } -> symbol == "cCOMP")
+                        |> List.filter (\{ symbol } -> symbol == "lLODE")
                         |> List.head
                         |> Maybe.andThen (\{ underlying } -> Eth.Oracle.getOraclePrice oracleState underlying)
                         |> Maybe.withDefault Decimal.zero

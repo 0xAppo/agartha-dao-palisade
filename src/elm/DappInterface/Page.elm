@@ -12,6 +12,7 @@ type Page
     | Propose
     | CrowdPropose
     | TermsOfService
+    | Vote
 
 
 buildTitle : Translations.Lang -> Maybe String -> String
@@ -45,6 +46,9 @@ getPageTitle userLanguage page =
         TermsOfService ->
             buildTitle userLanguage (Just (Translations.site_title_terms userLanguage))
 
+        Vote ->
+            buildTitle userLanguage (Just (Translations.site_title_vote userLanguage))
+
 
 getHrefUrl : Page -> String
 getHrefUrl page =
@@ -66,6 +70,9 @@ getHrefUrl page =
 
         TermsOfService ->
             "#terms"
+
+        Vote ->
+            "#vote"
 
 
 getPage : Url.Url -> Page
@@ -89,6 +96,9 @@ getPage location =
 
         Just [ "terms" ] ->
             TermsOfService
+
+        Just [ "vote" ] ->
+            Vote
 
         _ ->
             Home
