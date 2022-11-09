@@ -295,7 +295,7 @@ view userLanguage maybeConfig maybeNetwork account tokenState oracleState transa
                                     [ text (Translations.nothing_to_claim userLanguage) ]
                     in
                     standardModalView (Translations.votes_page_comp_balance userLanguage)
-                        [ div [ class "icon icon--COMP" ] []
+                        [ div [ class "icon icon--LODE" ] []
                         , h5 [ class "claim-comp__modal__body__balance" ] [ text (formatToDecimalPlaces 8 False totalComp) ]
                         , label [ class "claim-comp__modal__body__value" ] [ text (formatCurrencyFunc totalValue) ]
                         , div [ class "claim-comp__modal__body__rows" ]

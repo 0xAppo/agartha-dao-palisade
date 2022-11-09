@@ -29,8 +29,8 @@
     "transaction_broadcast_with_estimation": "트랜잭션 브로드캐스트. 확인 예상 기간 :",
     "view_on_etherscan": "Etherscan에서보기",
     "nothing_to_claim": "청구 할 사항 없음",
-    "claim_comp": "{{compAmount}} COMP 청구",
-    "claiming_comp": "{{compAmount}} COMP 청구",
+    "claim_comp": "{{compAmount}} LODE 청구",
+    "claiming_comp": "{{compAmount}} LODE 청구",
 
     "supply_markets": "공급",
     "borrow_markets": "대출",

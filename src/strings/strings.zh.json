@@ -29,8 +29,8 @@
     "transaction_broadcast_with_estimation": "交易广播。预计确认时间：",
     "view_on_etherscan": "在Etherscan上查看",
     "nothing_to_claim": "没什么可要求的",
-    "claim_comp": "索取{{compAmount}} COMP",
-    "claiming_comp": "申请{{compAmount}} COMP",
+    "claim_comp": "索取{{compAmount}} LODE",
+    "claiming_comp": "申请{{compAmount}} LODE",
 
     "supply_markets": "供应市场",
     "borrow_markets": "借贷市场",

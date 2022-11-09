@@ -70,6 +70,7 @@ type alias Config =
     , maybeCErc20Delegate : Maybe ContractAddress
     , maybeCDaiDelegate : Maybe ContractAddress
     , maybeCompToken : Maybe TokenConfig
+    , maybelLODE : Maybe ContractAddress
     , maybeReservoir : Maybe ContractAddress
     , maybeComptrollerG3 : Maybe ContractAddress
     , maybePriceFeed : Maybe ContractAddress
@@ -181,6 +182,9 @@ loadConfig networkName ({ contracts, cTokensRaw, tokens, blocks } as basicConfig
 
         maybeCompToken =
             Dict.get "LODE" tokens
+
+        maybelLODE = 
+            Dict.get "lLODE" contracts
 
         maybeReservoir =
             Dict.get "Reservoir" contracts
@@ -304,6 +308,7 @@ loadConfig networkName ({ contracts, cTokensRaw, tokens, blocks } as basicConfig
             , maybeCErc20Delegate = maybeCErc20Delegate
             , maybeCDaiDelegate = maybeCDaiDelegate
             , maybeCompToken = maybeCompToken
+            , maybelLODE = maybelLODE
             , maybeReservoir = maybeReservoir
             , maybeComptrollerG3 = maybeComptrollerG3
             , maybePriceFeed = maybePriceFeed

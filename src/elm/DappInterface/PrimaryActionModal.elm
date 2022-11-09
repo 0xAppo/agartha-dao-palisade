@@ -603,7 +603,7 @@ assetAndCompRateForm userLanguage config maybeEtherUsdPrice ({ chosenAsset, prim
             ]
             , div [ class "calculation" ]
             [ span []
-                [ span [ class "icon icon--COMP" ] []
+                [ span [ class "icon icon--LODE" ] []
                 , span [ class "description" ]
                     [ text (Translations.distribution_apy userLanguage)
                     ]

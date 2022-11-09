@@ -327,7 +327,6 @@ newBlockCmd apiBaseUrlMap maybeNetwork blockNumber previousBlockNumber ({ dataPr
                                     , Cmd.map WrappedGovernanceMsg (Eth.Governance.newBlockCmd config blockNumber model.account Nothing)
                                     ]
 
-
                                 _ ->
                                     []
 
@@ -459,9 +458,6 @@ handleUpdatesFromEthConnectedWallet maybeConfig connectedEthWalletMsg model =
                                 _ ->
                                     Cmd.none
 
-                        Admin ->
-                            Admin.getQueuedTransactions model.configs model.network
-
                         Vote ->
                             case ( maybeConfig, model.blockNumber ) of
                                 ( Just config, Just blockNumber ) ->
@@ -472,6 +468,9 @@ handleUpdatesFromEthConnectedWallet maybeConfig connectedEthWalletMsg model =
 
                                 _ ->
                                     Cmd.none
+
+                        Admin ->
+                            Admin.getQueuedTransactions model.configs model.network
 
                         _ ->
                             Cmd.none
@@ -1126,10 +1125,9 @@ update msg ({ page, configs, apiBaseUrlMap, account, transactionState, bnTransac
 
 
 view : Model -> Html Msg
-view model =
-    viewFull model
-        |> Html.div [ id "main" ]
-
+view ({userLanguage} as model) =
+    Html.div [ id "main" ]
+        (viewFull model)
 
 viewFull : Model -> List (Html Msg)
 viewFull ({ page, liquidateModel, transactionState, compoundState, tokenState, oracleState, configs, configAbis, network, preferences, account, blockNumber, userLanguage } as model) =

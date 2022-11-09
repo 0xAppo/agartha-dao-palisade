@@ -237,7 +237,7 @@ compBalanceView account governanceState =
         balanceView value attrs =
             div (class "comp-balance" :: attrs)
                 [ text value
-                , div [ class "icon icon--COMP" ] []
+                , div [ class "icon icon--LODE" ] []
                 ]
     in
     case account of
