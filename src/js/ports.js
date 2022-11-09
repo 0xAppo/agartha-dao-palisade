@@ -299,7 +299,8 @@ function subscribeToCTokenPorts(app, eth) {
             underlyingDecimals: underlyingDecimals,
             compSupplySpeed: compSupplySpeedResult,
             compBorrowSpeed: compBorrowSpeedResult,
-            borrowCap: borrowCapResult
+            borrowCap: borrowCapResult,
+            
           }, index) => {
             const totalCash = toScaledDecimal(parseWeiStr(totalCashResult), underlyingDecimals);
 
@@ -309,7 +310,7 @@ function subscribeToCTokenPorts(app, eth) {
             const oneCTokenInUnderlying = exchangeRateCurrent / Math.pow(10, mantissa);
             const totalSupplyScaled = parseWeiStr(totalSupplyResult) / Math.pow(10, cTokenDecimals);
 
-            console.log(results);
+            //console.log(results);
 
             // APY daily compounding formula : ( 1 + 5760 * supplyRatePerBlock / 1e18 )^365 - 1
             // BN.js only handles ints so we will need to return
@@ -332,7 +333,8 @@ function subscribeToCTokenPorts(app, eth) {
               compBorrowSpeedPerBlock: toScaledDecimal(parseWeiStr(compBorrowSpeedResult), EXP_DECIMALS),
               compBorrowSpeedPerDay: toScaledDecimal(parseWeiStr(compBorrowSpeedResult).mul(BLOCKS_PER_DAY).mul(BLOCK_CONVERSION_FACTOR), EXP_DECIMALS),
               borrowCap: toScaledDecimal(parseWeiStr(borrowCapResult), underlyingDecimals),
-              mintGuardianPaused: mintGuardianResults[index]
+              mintGuardianPaused: mintGuardianResults[index],
+              blockNumber: blockNumber
             };
           }
         );
@@ -368,6 +370,7 @@ function subscribeToCTokenPorts(app, eth) {
               balanceOfUnderlying: underlyingSupplyBalanceResult,
               tokenBalance: tokenBalanceResult,
               tokenAllowance: tokenAllowanceResult,
+              
             }) => {
               let { underlyingAssetAddress, underlyingDecimals, cTokenDecimals, cTokenSymbol } = cTokens[
                 cTokenAddress.toLowerCase()
@@ -394,6 +397,7 @@ function subscribeToCTokenPorts(app, eth) {
                 underlyingSupplyBalance: supplyBalance,
                 underlyingTokenWalletBalance: tokenBalance,
                 underlyingTokenAllowance: tokenAllowance,
+                blockNumber: blockNumber
               };
             }
           );
@@ -425,15 +429,16 @@ function subscribeToComptrollerPorts(app, eth) {
       wrapCall(app, eth, [[Comptroller, comptrollerAddress, 'liquidationIncentiveMantissa', []]], blockNumber),
     ])
       .then(
-        ([trxCount, [{ markets, liquidity, shorthall }], [closeFactorMantissa], [liquidationIncentiveMantissa]]) => {
+        ([trxCount, [{ markets, liquidity, shortfall }], [closeFactorMantissa], [liquidationIncentiveMantissa]]) => {
           let data = {
             customerAddress: customerAddress,
             accountLiquidity: toScaledDecimal(parseWeiStr(liquidity), EXP_DECIMALS),
-            accountShortfall: toScaledDecimal(parseWeiStr(shorthall), EXP_DECIMALS),
+            accountShortfall: toScaledDecimal(parseWeiStr(shortfall), EXP_DECIMALS),
             assetsIn: markets,
             trxCount: trxCount,
             closeFactor: toScaledDecimal(parseWeiStr(closeFactorMantissa), EXP_DECIMALS),
             liquidationIncentive: toScaledDecimal(parseWeiStr(liquidationIncentiveMantissa), EXP_DECIMALS),
+            blockNumber : blockNumber
           }
           app.ports.giveAccountLimitsPort.send(data);
           console.log('DONE - [askAccountLimitsPort] This is where we would be posting: ', data);
@@ -455,7 +460,8 @@ function subscribeToComptrollerPorts(app, eth) {
 
           return {
             underlyingAssetAddress: underlyingAssetAddress,
-            value: toScaledDecimal(underlyingPrice, EXP_DECIMALS)
+            value: toScaledDecimal(underlyingPrice, EXP_DECIMALS),
+            blockNumber : blockNumber
           };
         });
         console.log('DONE - [askOraclePricesAllPort] This is where we would be posting: ', allPricesList);

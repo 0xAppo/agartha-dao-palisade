@@ -3344,9 +3344,9 @@ component-emitter@^1.2.1:
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.3.0.tgz#16e4070fba8ae29b679f2215853ee181ab2eabc0"
   integrity sha512-Rd3se6QB+sO1TwqZjscQrurpEPIfO0/yYnSin6Q/rD3mOutHvUrCAhJub3r90uNb+SESBuE0QYoB90YdfatsRg==
 
-"compound-components@https://github.com/0xAppo/lodestar-components.git#bd785e9fc0ca23522a7ce25dcee9ea824413a47c":
+"compound-components@https://github.com/0xAppo/lodestar-components.git#e4c34b55fc4284518531b6def9160c8015ad2310":
   version "1.0.0"
-  resolved "https://github.com/0xAppo/lodestar-components.git#bd785e9fc0ca23522a7ce25dcee9ea824413a47c"
+  resolved "https://github.com/0xAppo/lodestar-components.git#e4c34b55fc4284518531b6def9160c8015ad2310"
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/preset-env" "^7.0.0"
