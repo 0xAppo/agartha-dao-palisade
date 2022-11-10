@@ -64,7 +64,7 @@
 }
 
 body {
-  background: $color_lodestar_gray;
+  background: $color_dark_2;
   -webkit-tap-highlight-color: transparent;
   min-height: 100vh;
 }
@@ -97,7 +97,7 @@ body {
   padding: 1.618rem 1.995rem;
   font-size: 0.9rem;
   color: $color_disabled;
-  background: $color_dark_1;
+  background: $color_red_1;
   border-radius: $border-radius;
   .description {
     display: block;
@@ -128,7 +128,7 @@ body {
       height: 10px;
       background-repeat: no-repeat;
       background-size: contain;
-      background-image: url(/compound-components/assets/icn-drop-down-dark.svg);
+      background-image: url(/compound-components/assets/icn-drop-down-light.svg);
       margin-left: 6px;
       transition: all 0.2s ease-in-out;
       transform: rotate(180deg);
@@ -286,7 +286,7 @@ body {
       width: 0.62em;
     }
     &.decimals {
-      color: $color_grey_1;
+      color: $color_light_1; //NOTE: This changes decimal color in borrow.supply of hero
     }
   }
   .digit-container {
@@ -316,7 +316,7 @@ body {
       right: 0;
       bottom: 0;
       margin: 0.1875rem;
-      background-color: $color_dark_1;
+      background-color: $color_dark_2;
       border-radius: 50%;
       align-items: center;
       justify-content: center;
@@ -591,7 +591,7 @@ body {
   }
 
   &.legacy-panel {
-    background: $color_light_2;
+    background: $color_dark_2; //NOTE: changes color of top portion of input box
 
     .icon {
       display: inline-block;
@@ -641,7 +641,7 @@ body {
 
   p {
     margin-top: 1.25rem;
-    color: $color_grey_2;
+    color: $color_light_2;
 
     &.small {
       font-size: 12px;
@@ -649,7 +649,7 @@ body {
   }
 
   .description {
-    color: $color_grey_2;
+    color: $color_light_2; // NOTE: Changes font color of text inside input box
     text-align: center;
   }
 
@@ -689,11 +689,11 @@ body {
     width: 25.5rem - ($gov-column-gutter * 2);
     height: 82px;
     margin: 32px $gov-column-gutter 30px $gov-column-gutter;
-    background: $color_light_2;
+    background: $color_dark_2;
     font-size: 2.625rem; //This value is overwritten in elm based on character count
     font-weight: 500;
     text-align: center;
-    color: $color_dark_2;
+    color: $color_light_2;
     &.supply {
       caret-color: $color_supply;
     }
@@ -706,11 +706,11 @@ body {
     padding: 4.2rem ($gov-column-gutter) 4.875rem ($gov-column-gutter/2);
     text-align: center;
     width: auto;
-    background: $color_light_2;
+    background: $color_dark_2;
   }
 
   .info {
-    background: $color_light_1;
+    background: $color_dark_2;
     padding-bottom: $gov-column-gutter + 7.25rem;
   }
 
@@ -750,7 +750,7 @@ body {
   .calculation {
     //color: $color_grey_1;
     .description {
-      color: color_light_1;
+      color: $color_light_1;
     }
 
     .icon {

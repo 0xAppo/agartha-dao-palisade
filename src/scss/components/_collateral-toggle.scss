@@ -4,11 +4,11 @@
 
 .collateral-toggle {
   h4 {
-    color: $color_dark_2;
+    color: $color_light_1;
   }
 
   p {
-    color: $color_grey_2;
+    color: $color_light_1;
   }
 
   p[class*=center-text]{
@@ -101,7 +101,7 @@
 
         span {
           &.description {
-            color: $color_grey_2;
+            color: $color_light_1;
           }
         }
       }

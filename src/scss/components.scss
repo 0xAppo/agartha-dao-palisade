@@ -22,6 +22,7 @@
 
 section.hero {
   background: $color_dark_1;
+  background-image: url(/compound-components/assets/lodestar_banner_hero.svg);
   margin-bottom: -3.75rem;
   padding: ($column-gutter * 0.95) 0 ($column-gutter * 5.5);
   h1 {
